@@ -1,0 +1,14 @@
+{
+  "title": "Josh Odom",
+  "description": "Personal blog of Josh Odom. Hopefully my thoughts on philosophy, technology, AI, and life.",
+  "url": "https://odomobo.github.io/joshodom/",
+  "pathPrefix": "/joshodom/",
+  "author": {
+    "name": "Josh Odom",
+    "bio": "I like to think about philosophy, technology, AI, and life. Maybe you'll find it interesting!"
+  },
+  "nav_links": [
+    { "title": "Blog", "url": "/blog/" },
+    { "title": "About", "url": "/about/" }
+  ]
+}

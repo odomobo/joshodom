@@ -1,0 +1,18 @@
+---
+layout: base
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: tag
+permalink: /tags/{{ tag | slugify }}/
+eleventyExcludeFromCollections: true
+---
+<h1 class="page-title">Posts tagged &ldquo;{{ tag }}&rdquo;</h1>
+
+<ul class="post-list">
+  {% for post in collections.posts %}
+    {% if post.data.tags and tag in post.data.tags %}
+      {% include "post-card.njk" %}
+    {% endif %}
+  {% endfor %}
+</ul>

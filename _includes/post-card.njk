@@ -1,0 +1,27 @@
+<li class="post-card" id="post-{{ loop.index }}">
+  <h2 class="post-card__title">
+    <a href="{{ post.url }}">{{ post.data.title }}</a>
+  </h2>
+  {% if post.data.description %}
+    <p class="post-card__desc">{{ post.data.description }}</p>
+  {% endif %}
+  <div class="post-meta">
+    <time datetime="{{ post.date | htmlDateStr }}">{{ post.date | dateDisplay }}</time>
+    <span class="separator">·</span>
+    <span>{{ site.author.name }}</span>
+    {% if post.data.tags and post.data.tags.length %}
+      <span class="separator">·</span>
+      <ul class="tag-list">
+        {% for tag in post.data.tags %}
+          <li><a href="/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  {% if post.templateContent %}
+    <div class="post-card__excerpt post-body">
+      {{ post.templateContent | excerpt | rewriteImgSrc(post.url) | safe }}
+    </div>
+    <p class="post-card__readmore">&hellip; <a href="{{ post.url }}">Read more &rarr;</a></p>
+  {% endif %}
+</li>

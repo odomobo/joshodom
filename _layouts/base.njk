@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "head.njk" %}
+</head>
+<body>
+  <script>document.documentElement.classList.add('js-enabled');</script>
+  {% include "nav.njk" %}
+  <main class="container">
+    {{ content | safe }}
+  </main>
+  {% include "footer.njk" %}
+  <script src="/assets/js/nav.js"></script>
+</body>
+</html>

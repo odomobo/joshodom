@@ -1,0 +1,33 @@
+---
+layout: base
+---
+<div class="home">
+  <section class="home__bio">
+    <p>{{ site.author.bio }}</p>
+  </section>
+
+  <section class="home__recent">
+    <h2 class="page-title">Recent Posts</h2>
+    <ul class="post-list">
+      {% for post in collections.posts | limit(5) %}
+        {% include "post-card.njk" %}
+      {% endfor %}
+    </ul>
+    <div class="home__all-posts">
+      <a href="/blog/#post-6">All posts <span class="all-posts-arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <section class="home__tags">
+    <h2 class="page-title">Tags</h2>
+    <ul class="tag-index">
+      {% for tag in collections.tagList %}
+        <li>
+          <a href="/tags/{{ tag | slugify }}/" class="tag-index__link">
+            {{ tag }}<span class="tag-index__count"> ({{ collections[tag].length }})</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>

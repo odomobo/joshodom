@@ -1,0 +1,29 @@
+---
+layout: base
+title: Blog
+pagination:
+  data: collections.posts
+  size: 10
+  alias: paginatedPosts
+permalink: "{% if pagination.pageNumber == 0 %}/blog/{% else %}/blog/page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+eleventyExcludeFromCollections: true
+---
+<h1 class="page-title">Blog</h1>
+
+<ul class="post-list">
+  {% for post in paginatedPosts %}
+    {% include "post-card.njk" %}
+  {% endfor %}
+</ul>
+
+{% if pagination.pages.length > 1 %}
+<nav class="pagination" aria-label="Pagination">
+  {% if pagination.href.previous %}
+    <a href="{{ pagination.href.previous }}" class="pagination__prev">&larr; Newer</a>
+  {% endif %}
+  <span class="pagination__info">Page {{ pagination.pageNumber + 1 }} of {{ pagination.pages.length }}</span>
+  {% if pagination.href.next %}
+    <a href="{{ pagination.href.next }}" class="pagination__next">Older &rarr;</a>
+  {% endif %}
+</nav>
+{% endif %}

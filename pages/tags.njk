@@ -1,0 +1,19 @@
+---
+layout: base
+title: Tags
+permalink: /tags/
+eleventyExcludeFromCollections: true
+---
+<h1 class="page-title">Tags</h1>
+
+<ul class="tag-index">
+  {% for tag in collections.tagList %}
+    <li class="tag-index__item">
+      <a href="/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+      <span class="tag-count">
+        {{- collections[tag].length -}}
+        {%- if collections[tag].length == 1 %} post{%- else %} posts{%- endif %}
+      </span>
+    </li>
+  {% endfor %}
+</ul>

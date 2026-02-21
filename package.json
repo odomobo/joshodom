@@ -1,0 +1,16 @@
+{
+  "name": "pared",
+  "version": "1.0.0",
+  "description": "A minimalistic Eleventy theme for personal sites with a blog",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-rss": "^2.0.0",
+    "shiki": "^1.0.0",
+    "lightningcss": "^1.0.0",
+    "gray-matter": "^4.0.3"
+  }
+}

@@ -1,0 +1,36 @@
+/* Base typography, body, global links.
+   Prose styles (headings, p, lists, blockquote) are scoped to .post-body in _post.css. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  min-height: 100vh;
+}
+
+::selection {
+  background-color: var(--selection-bg);
+}
+
+/* Global link: no underline; color + transition only.
+   Post body links get underline treatment in _post.css. */
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color 150ms ease;
+
+  &:hover {
+    color: var(--color-link-hover);
+  }
+}
